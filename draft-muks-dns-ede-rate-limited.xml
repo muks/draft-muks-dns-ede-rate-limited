@@ -59,9 +59,8 @@
     <!-- <keyword>dns</keyword> -->
 
     <abstract>
-      <t>This memo documents an EDNS Extended DNS Errors INFO-CODE for
-      conditions where truncated responses are returned because of
-      rate-limiting by the nameserver.</t>
+      <t>This memo documents EDNS Extended DNS Errors INFO-CODE values
+      for rate-limited and over-quota conditions.</t>
     </abstract>
   </front>
   <middle>
@@ -69,14 +68,30 @@
       <name>Introduction</name>
       <t>DNS nameservers return EDNS Extended DNS Errors options <xref
       target="RFC8914"/> in query responses to provide extra details
-      about the result of DNS query processing.</t>
-      <t>When queries are rate-limited, e.g., due to the effect of DNS
-      Response Rate Limiting <xref target="RRL"/> or client IP-address
-      based rate limiting, nameservers may return truncated responses
-      possibly with an empty answer section depending on the
-      implementation. In such responses, nameservers MAY include an EDNS
-      Extended DNS Error option with the INFO-CODE set to "Rate Limited"
-      as provided in <xref target="sec_iana"/>.</t>
+      about the result of DNS query processing. This memo documents EDNS
+      Extended DNS Errors INFO-CODE values to be returned when
+      rate-limiting is performed, or an over-quota condition is
+      reached.</t>
+    </section>
+    <section anchor="sec_rate_limited">
+      <name>"Rate Limited" EDE INFO-CODE</name>
+      <t>When DNS queries or transactions are rate-limited, e.g., due to
+      the effect of DNS Response Rate Limiting <xref target="RRL"/> or
+      client IP-address based rate limiting, nameservers may return
+      RCODE=REFUSED or return truncated responses possibly with an empty
+      answer section depending on the implementation. In such responses,
+      nameservers MAY include an EDNS Extended DNS Error option with the
+      INFO-CODE set to "Rate Limited" as provided in <xref
+      target="sec_iana"/>.</t>
+    </section>
+    <section anchor="sec_over_quota">
+      <name>"Over Quota" EDE INFO-CODE</name>
+      <t>When DNS queries or transactions cause an over-quota condition
+      such as when the count of DNS UPDATEs allowed for a customer have
+      breached a limit, nameservers may return failures. In such
+      responses, nameservers MAY include an EDNS Extended DNS Error
+      option with the INFO-CODE set to "Over Quota" as provided in <xref
+      target="sec_iana"/>.</t>
     </section>
     <section>
       <name>Requirements notation</name>
@@ -108,7 +123,12 @@
           <tr>
             <td>TBD</td>
             <td>Rate Limited</td>
-            <td>See <xref target="sec_intro"/>.</td>
+            <td>See <xref target="sec_rate_limited"/>.</td>
+          </tr>
+          <tr>
+            <td>TBD</td>
+            <td>Over Quota</td>
+            <td>See <xref target="sec_over_quota"/>.</td>
           </tr>
         </tbody>
       </table>
