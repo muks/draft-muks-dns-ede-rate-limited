@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE rfc [
+  <!ENTITY nbsp    "&#160;">
+  <!ENTITY zwsp   "&#8203;">
+  <!ENTITY nbhy   "&#8209;">
+  <!ENTITY wj     "&#8288;">
+]>
+<!-- This template is for creating an Internet Draft using xml2rfc,
+     which is available here: http://xml.resource.org. -->
+<!-- used by XSLT processors -->
+<!-- For a complete list and description of processing instructions (PIs),
+     please see http://xml.resource.org/authoring/README.html. -->
+<!-- Below are generally applicable Processing Instructions (PIs) that most I-Ds might want to use.
+     (Here they are set differently than their defaults in xml2rfc v1.32) -->
+<?rfc strict="yes" ?>
+<!-- give errors regarding ID-nits and DTD validation -->
+<!-- control the table of contents (ToC) -->
+<?rfc toc="yes"?>
+<?rfc tocappendix="yes"?>
+<!-- generate a ToC -->
+<?rfc tocdepth="3"?>
+<!-- the number of levels of subsections in ToC. default: 3 -->
+<!-- control references -->
+<?rfc symrefs="yes"?>
+<!-- use symbolic references tags, i.e, [RFC2119] instead of [1] -->
+<?rfc sortrefs="yes" ?>
+<!-- sort the reference entries alphabetically -->
+<!-- control vertical white space
+     (using these PIs as follows is recommended by the RFC Editor) -->
+<?rfc compact="yes" ?>
+<!-- do not start each main section on a new page -->
+<?rfc subcompact="no" ?>
+<!-- keep one blank line between list items -->
+<!-- end of list of popular I-D processing instructions -->
+<?rfc comments="no" ?>
+<?rfc inline="yes" ?>
+<rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="exp" docName="draft-muks-dns-ede-rate-limited-00" ipr="trust200902" submissionType="IETF" tocInclude="true" tocDepth="3" symRefs="true" sortRefs="true" version="3">
+  <!-- xml2rfc v2v3 conversion 3.31.0 -->
+  <front>
+    <title>DNS EDE option for rate-limited queries</title>
+    <seriesInfo name="Internet-Draft" value="draft-muks-dns-ede-rate-limited-00"/>
+    <author fullname="Mukund Sivaraman" initials="M." surname="Sivaraman">
+      <organization>Banu Systems Private Limited</organization>
+      <address>
+        <postal>
+          <street>6001 Beach Road, #19-09, Golden Mile Tower</street>
+          <code>199589</code>
+          <country>SG</country>
+        </postal>
+        <email>muks@banu.com</email>
+        <uri>https://banu.com/</uri>
+      </address>
+    </author>
+    <date/>
+    <!-- Meta-data Declarations -->
+
+    <area>Operations and Management Area</area>
+    <workgroup>Internet Engineering Task Force</workgroup>
+    <!-- <keyword>dns</keyword> -->
+
+    <abstract>
+      <t>This memo documents an EDNS Extended DNS Errors INFO-CODE for
+      conditions where truncated responses are returned because of
+      rate-limiting by the nameserver.</t>
+    </abstract>
+  </front>
+  <middle>
+    <section anchor="sec_intro">
+      <name>Introduction</name>
+      <t>DNS nameservers return EDNS Extended DNS Errors options <xref
+      target="RFC8914"/> in query responses to provide extra details
+      about the result of DNS query processing.</t>
+      <t>When queries are rate-limited, e.g., due to the effect of DNS
+      Response Rate Limiting <xref target="RRL"/> or client IP-address
+      based rate limiting, nameservers may return truncated responses
+      possibly with an empty answer section depending on the
+      implementation. In such responses, nameservers MAY include a EDNS
+      Extended DNS Error option with the INFO-CODE set to "Rate Limited"
+      as provided in <xref target="sec_iana"/>.</t>
+    </section>
+    <section>
+      <name>Requirements notation</name>
+      <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+      NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED",
+      "MAY", and "OPTIONAL" in this document are to be interpreted as
+      described in <xref target="RFC2119"/> <xref target="RFC8174"/>
+      when, and only when, they appear in all capitals, as shown
+      here.</t>
+    </section>
+    <section>
+      <name>Security considerations</name>
+      <t>There are no security considerations.</t>
+    </section>
+    <section anchor="sec_iana">
+      <name>IANA considerations</name>
+      <t>IANA is requested to allocate the following code point in the
+      "Extended DNS Error Codes" registry in the "Domain Name System
+      (DNS) Parameters" registry group.</t>
+      <table>
+        <thead>
+          <tr>
+            <th>INFO-CODE</th>
+            <th>Purpose</th>
+            <th>Reference</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>TBD</td>
+            <td>Rate Limited</td>
+            <td>See <xref target="sec_intro"/>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </middle>
+  <back>
+    <references>
+      <name>References</name>
+      <references>
+        <name>Normative references</name>
+        <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml"/>
+        <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml"/>
+        <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8914.xml"/>
+      </references>
+      <references>
+        <name>Informative references</name>
+        <reference anchor="RRL" target="https://ftp.isc.org/isc/pubs/tn/isc-tn-2012-1.txt">
+          <front>
+            <title>DNS Response Rate Limiting (DNS RRL)</title>
+            <author fullname="Paul Vixie" initials="P." surname="Vixie"/>
+            <author fullname="Vernon Schryver" initials="V." surname="Schryver"/>
+            <date year="2012"/>
+          </front>
+        </reference>
+      </references>
+    </references>
+  </back>
+</rfc>

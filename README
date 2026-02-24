@@ -1,0 +1,3 @@
+This is a repository to document a new EDNS Extended DNS Errors (RFC
+8914) INFO-CODE for conditions where truncated responses are returned
+because of rate-limiting by the nameserver.
