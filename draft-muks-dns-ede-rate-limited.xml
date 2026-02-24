@@ -74,7 +74,7 @@
       Response Rate Limiting <xref target="RRL"/> or client IP-address
       based rate limiting, nameservers may return truncated responses
       possibly with an empty answer section depending on the
-      implementation. In such responses, nameservers MAY include a EDNS
+      implementation. In such responses, nameservers MAY include an EDNS
       Extended DNS Error option with the INFO-CODE set to "Rate Limited"
       as provided in <xref target="sec_iana"/>.</t>
     </section>
