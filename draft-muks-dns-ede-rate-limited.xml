@@ -108,7 +108,7 @@
     </section>
     <section anchor="sec_iana">
       <name>IANA considerations</name>
-      <t>IANA is requested to allocate the following code point in the
+      <t>IANA is requested to allocate the following code points in the
       "Extended DNS Error Codes" registry in the "Domain Name System
       (DNS) Parameters" registry group.</t>
       <table>
