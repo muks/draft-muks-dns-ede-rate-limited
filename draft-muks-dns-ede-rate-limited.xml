@@ -108,9 +108,9 @@
     </section>
     <section anchor="sec_iana">
       <name>IANA considerations</name>
-      <t>IANA is requested to allocate the following code points in the
-      "Extended DNS Error Codes" registry in the "Domain Name System
-      (DNS) Parameters" registry group.</t>
+      <t>IANA has allocated the following code points in the "Extended
+      DNS Error Codes" registry in the "Domain Name System (DNS)
+      Parameters" registry group.</t>
       <table>
         <thead>
           <tr>
@@ -121,12 +121,12 @@
         </thead>
         <tbody>
           <tr>
-            <td>TBD</td>
+            <td>31</td>
             <td>Rate Limited</td>
             <td>See <xref target="sec_rate_limited"/>.</td>
           </tr>
           <tr>
-            <td>TBD</td>
+            <td>32</td>
             <td>Over Quota</td>
             <td>See <xref target="sec_over_quota"/>.</td>
           </tr>
